@@ -152,7 +152,21 @@ input[type="checkbox"]:checked {
 /* ACCOUNT STYLES */
 
 .account{
-  height: 100px;
-  width: 100px;
-  background-color: blue;
+  height: 70px;
+  width: 70px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: white;
+  justify-content: center;
+  display: inline-flex;
+  
+  align-items: center;
+}
+
+.account:hover{
+  opacity: .5;
+}
+
+#profile{
+ 
 }
