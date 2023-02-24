@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
-
+import Popup from 'reactjs-popup';
 
 function App() {
   // STATE HOOK
@@ -15,9 +15,33 @@ function App() {
   const [email, setEmail ] = useState("");
   const [profile, setProfile ]= useState("");
 
+  //PROFILE POPUP
+  
+  const PopupExample = () => (
+    <Popup trigger={<img id='profile'} position="top left">
+      {close => (
+        <div>
+          Content here
+          <a className="close" onClick={close}>
+            &times;
+          </a>
+        </div>
+      )}
+    </Popup>
+  );
+
+  // GOOGLE ONE TAP POPUP
+
   useGoogleOneTapLogin({
-    onError: error => console.log(error),
-    onSuccess: response => console.log(response),
+    onError: error => {
+      console.log(error);
+    },
+    onSuccess: response => {
+      setName(response.name);
+      setEmail(response.email);
+      setProfile(response.picture);
+      console.log(response);
+    },
     googleAccountConfigs: {
       client_id: "938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com"
     },
@@ -57,7 +81,7 @@ function App() {
 
       {/* 1. HEADER */}
       <div className='account'>
-        <p></p>
+        <img id='profile' src={profile} alt="" height="50px" width="50px"/>
       </div>
       <h1 className='header'> TODO LIST</h1>
       
@@ -67,6 +91,7 @@ function App() {
           <option value="⭐️">⭐️ STAR</option>
           <option value="📌">📌 PIN</option>
           <option value="❤️">❤️ FAV</option>
+          <option value="📕">📕 STUDY</option>
         </select>
         <input id='input' value={task} type="text" placeholder="Task Name" onChange={e => setTask(e.target.value)} />
         <button id='btn' onClick={addTask}>ADD TASK</button>
