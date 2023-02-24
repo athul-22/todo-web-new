@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-
 
 function App() {
   // STATE HOOK
@@ -19,18 +16,7 @@ function App() {
 
   //PROFILE POPUP
 
-  const PopupExample = () => (
-    <Popup trigger={<button id='pop-btn'>POPUP</button>} position="top left">
-      {close => (
-        <div>
-          Content here
-          <a className="close" onClick={close}>
-            &times;
-          </a>
-        </div>
-      )}
-    </Popup>
-  );
+
 
   // GOOGLE ONE TAP POPUP
 
