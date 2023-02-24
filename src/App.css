@@ -159,7 +159,7 @@ input[type="checkbox"]:checked {
   background-color: white;
   justify-content: center;
   display: inline-flex;
-  
+
   align-items: center;
 }
 
@@ -167,6 +167,7 @@ input[type="checkbox"]:checked {
   opacity: .5;
 }
 
-#profile{
- 
+#pop-btn{
+  height: 50px;
+  width: 100px;
 }
