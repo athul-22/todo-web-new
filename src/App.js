@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
-import { useEffect } from 'react';
+import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
 
-const clientId = "938054737950-sa3dukd5ssvjhund0f4pk3e28r6ncras.apps.googleusercontent.com";
 
 function App() {
   // STATE HOOK
-
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
 
   const [emoji, setEmoji] = useState("");
+
+
+  useGoogleOneTapLogin({
+    onError: error => console.log(error),
+    onSuccess: response => console.log(response),
+    googleAccountConfigs: {
+      client_id: "938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com"
+    },
+  });
 
   function addTask() {
     // EMPTY INPUT
