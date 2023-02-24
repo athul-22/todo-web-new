@@ -11,6 +11,9 @@ function App() {
 
   const [emoji, setEmoji] = useState("");
 
+  const [name, setName ] = useState("");
+  const [email, setEmail ] = useState("");
+  const [profile, setProfile ]= useState("");
 
   useGoogleOneTapLogin({
     onError: error => console.log(error),
@@ -53,6 +56,9 @@ function App() {
     <div className="App">
 
       {/* 1. HEADER */}
+      <div className='account'>
+        <p></p>
+      </div>
       <h1 className='header'> TODO LIST</h1>
       
       {/* 2. INPUT BOX AND BUTTON */}

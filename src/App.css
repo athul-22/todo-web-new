@@ -149,3 +149,10 @@ input[type="checkbox"]:checked {
 }
 
 
+/* ACCOUNT STYLES */
+
+.account{
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+}
