@@ -12,15 +12,15 @@ function Profile() {
    var nameDB = localStorage.getItem("nameDB");
    var profileDB = localStorage.getItem("pictureDB");
    var emailDB = localStorage.getItem("emailDB");
-
+    var profileImage =  document.getElementById("profile");
     if (name === "") {
-        document.getElementById("profile").src={GoogleIcon};
+       profileImage.src= GoogleIcon;
     }
     if(nameDB === ""){
-        document.getElementById("profile").src={GoogleIcon};
+        profileImage.src.src=GoogleIcon;
     }else{
         
-        document.getElementById("profile").src={profileDB};
+        profileImage.src.src=GoogleIcon;
     }
     // GOOGLE SIGNIN 
   
