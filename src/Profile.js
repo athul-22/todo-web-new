@@ -9,21 +9,21 @@ function Profile() {
 
     // IF ELSE LOGIN CHECKING FUNCTION
     const [name, setName] = useState("");
-   var nameDB = localStorage.getItem("nameDB");
-   var profileDB = localStorage.getItem("pictureDB");
-   var emailDB = localStorage.getItem("emailDB");
-    var profileImage =  document.getElementById("profile");
+    var nameDB = localStorage.getItem("nameDB");
+    var profileDB = localStorage.getItem("pictureDB");
+    var emailDB = localStorage.getItem("emailDB");
+    var profileImage = document.getElementById("profile");
     if (name === "") {
-       profileImage.src= GoogleIcon;
+        profileImage.src = GoogleIcon;
     }
-    if(nameDB === ""){
-        profileImage.src.src=GoogleIcon;
-    }else{
-        
-        profileImage.src.src=GoogleIcon;
+    if (nameDB === "") {
+        profileImage.src.src = GoogleIcon;
+    } else {
+
+        profileImage.src.src = GoogleIcon;
     }
     // GOOGLE SIGNIN 
-  
+
     const [email, setEmail] = useState("");
     const [profile, setProfile] = useState("");
 
