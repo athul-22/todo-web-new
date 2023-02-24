@@ -1,39 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
-import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
+import Profile from './Profile';
 
 function App() {
+
   // STATE HOOK
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
 
   const [emoji, setEmoji] = useState("");
 
-  const [name, setName ] = useState("");
-  const [email, setEmail ] = useState("");
-  const [profile, setProfile ]= useState("");
-
-  //PROFILE POPUP
-
-
-
-  // GOOGLE ONE TAP POPUP
-
-  useGoogleOneTapLogin({
-    onError: error => {
-      console.log(error);
-    },
-    onSuccess: response => {
-      setName(response.name);
-      setEmail(response.email);
-      setProfile(response.picture);
-      console.log(response);
-    },
-    googleAccountConfigs: {
-      client_id: "938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com"
-    },
-  });
+  
 
   function addTask() {
     // EMPTY INPUT
@@ -63,16 +41,13 @@ function App() {
     setItem(newArray);
     toast.success("Task Removed Successfully");
   }
-  
+
   return (
     <div className="App">
 
       {/* 1. HEADER */}
-      <div className='account'>
-        <img id='profile' src={profile} alt="" height="50px" width="50px"/>
-      </div>
+      <Profile/>
       <h1 className='header'> TODO LIST</h1>
-      
       {/* 2. INPUT BOX AND BUTTON */}
       <div className='popup'>
         <select id='emoji' value={emoji} onChange={e => setEmoji(e.target.value)}>
