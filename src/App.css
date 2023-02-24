@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.App{
+  display: grid;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  place-items: center;
+  background-color: #ebf5fc;
+  margin-top: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+body{
+  background-color: #ebf5fc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header{
+  text-align: center;
+  text-shadow: -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1);
 }
+
+#emoji{
+  justify-content: center;
+  height: 45px;
+  font-size: 17px;
+  width: 150px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1);
+  padding:10px 10px 10px 10px;
+}
+
+#input{
+  justify-content: center;
+  height: 45px;
+  font-size: 17px;
+  width: 300px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+              3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#input[placeholder]{
+  padding-left: 20px;
+}
+
+#input:focus{
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+              inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+#btn{
+  font-weight: bold;
+  font-size: 15px;
+  height: 50px;
+  width: 120px;
+  margin-top: -30px;
+  background-color: #ebf5fc;
+  color: #6a9bd8;
+  border:none;
+  border-radius: 10px;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+              3px 3px 5px rgba(0, 0, 0, 0.1);
+  
+}
+
+#btn:hover{
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+              inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+#task{
+  
+  border-radius: 10px;
+  text-decoration: none;
+  list-style-type: none;  
+  height: 40px;
+  width: 610px;
+  padding-top: 15px;
+  margin-top: 20px;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1);
+  padding-left: 20px;
+  font-size: 20px;
+  margin-left: -40px;
+  color: #6a9bd8;
+
+}
+
+#task:hover{
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+              inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+#close{
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  margin-top:-2px;
+  margin-right:20px ;
+  float: right;
+  cursor: pointer;
+}
+
+#close:hover{
+  background-color:#eee;
+
+}
+
+
+input[type=checkbox] {
+  border-radius: 20px;
+  border: 1px solid #e03232;
+  outline: 1px solid #eee;
+  background-color: rgb(69, 219, 55);
+  height: 23px;
+  width: 23px;
+  margin-top: 2px;
+  margin-right:10px ;
+  float: right;
+  cursor: pointer;
+  transition: background 1s, border-color 1s, box-shadow .5s;
+}
+
+input[type="checkbox"]:checked {
+  border-radius: 20px;
+  border: 1px solid #e03232;
+  outline: 1px solid #eee;
+  background-color: rgb(69, 219, 55);
+  height: 23px;
+  width: 23px;
+  margin-top: 2px;
+  margin-right:10px ;
+  float: right;
+  cursor: pointer;
+  transition: background 1s, border-color 1s, box-shadow .5s;
+}
+
+.strike{
+  background-color: #c2e4fc;
+  font-size: 30px;
+}
+
+
