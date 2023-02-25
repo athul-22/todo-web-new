@@ -77,7 +77,7 @@ function Profile() {
                     </center>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                    <Button variant="primary" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </>
