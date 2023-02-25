@@ -1,4 +1,8 @@
-
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #ebf5fc;
+}
 
 .App{
   height: 100%;
@@ -6,7 +10,7 @@
   justify-content: center;
   place-items: center;
   background-color: #ebf5fc;
-  margin-top: 20px;
+  
 }
 
 
@@ -174,4 +178,14 @@ input[type="checkbox"]:checked {
 #pop-btn{
   height: 50px;
   width: 100px;
+}
+
+#name{
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+#email{
+  margin-top: -20px;
+  color: grey;
 }

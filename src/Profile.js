@@ -10,28 +10,29 @@ function Profile() {
     //HOOKS
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [profile, setProfile] = useState("");
+    const [profile, setProfile] = useState(GoogleIcon);
 
     const profileRef = useRef();
 
-    // IF ELSE LOGIN CHECKING FUNCTION
-    setProfile(GoogleIcon);
-    var nameDB = localStorage.getItem("nameDB");
-    // var profileDB = localStorage.getItem("pictureDB");
-    // var emailDB = localStorage.getItem("emailDB");
-    // var profileImage = document.getElementById("profile");
-    if (name === "") {
-       // profileRef.current.src = {GoogleIcon};
-       //setProfile(GoogleIcon);
-    }
-    if (nameDB === "") {
-       // profileRef.current.src = {GoogleIcon};
-       //setProfile(GoogleIcon);
-    } else {
-
-       // profileRef.current.src = {GoogleIcon};
+    // // IF ELSE LOGIN CHECKING FUNCTION
+   
+    // var nameDB = localStorage.getItem("nameDB");
+    // // var profileDB = localStorage.getItem("pictureDB");
+    // // var emailDB = localStorage.getItem("emailDB");
+    // // var profileImage = document.getElementById("profile");
+    // if (name === "") {
+    //    // profileRef.current.src = {GoogleIcon};
+    //    //setProfile(GoogleIcon);
        
-    }
+    // }
+    // if (nameDB === "") {
+    //    // profileRef.current.src = {GoogleIcon};
+    //    //setProfile(GoogleIcon);
+    // } else {
+
+    //    // profileRef.current.src = {GoogleIcon};
+       
+    // }
    
     // GOOGLE ONE TAP POPUP
 
@@ -70,7 +71,7 @@ function Profile() {
                 </Modal.Header>
                 <Modal.Body>
                     <center>
-                        <img onClick={handleShow} id='profile' src={profile} alt="" height="50px" width="50px" />
+                        <img onClick={handleShow} id='profile' src={profile} alt="" height="70px" width="70px" />
                         <p id='name'>{name}</p>
                         <p id='email'>{email}</p>
                     </center>
