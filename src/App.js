@@ -13,8 +13,11 @@ function App() {
 
   const select = useRef();
 
+  const [oldArr , setOldarr] = useState([]);
+
 
   function addTask() {
+    setOldarr(item)
     // EMPTY INPUT
     if (!task) {
       // alert("ENTER AN ITEM");
@@ -29,8 +32,8 @@ function App() {
         id: Math.floor(Math.random() * 1000),
         value: task,
         icon: emoji,
+        
       };
-
       setItem(oldList => [...oldList, items]);
       setTask("");
     }
@@ -40,7 +43,34 @@ function App() {
   function removeTask(id) {
     const newArray = item.filter(items => items.id !== id);
     setItem(newArray);
+    setOldarr(newArray);
     toast.success("Task Removed Successfully");
+  }
+
+  function allFun(id){
+    console.log(oldArr)
+    setItem(oldArr);
+  }
+
+  function loveFun(id){
+    setItem(oldArr);
+    const result = item.filter(items => items.icon === "❤️");
+    console.log(result);
+    setItem(result);
+  }
+
+  function starFun(id){
+    setItem(oldArr);
+    const result = item.filter(items => items.icon === "⭐️");
+    console.log(result);
+    setItem(result);
+  }
+
+  function pinFun(id){
+    setItem(oldArr);
+    const result = item.filter(items => items.icon === "📌");
+    console.log(result);
+    setItem(result);
   }
 
   return (
@@ -49,16 +79,22 @@ function App() {
       {/* 1. HEADER */}
       <Profile/>
       <h1 className='header'> TODO LIST</h1>
-      <div className='filter'>
-        
-      </div>
+      
+      <div>
+        <button onClick={allFun}>ALL</button>
+        <button onClick={loveFun}>❤️</button>
+        <button onClick={pinFun}>📌</button>
+        <button onClick={starFun}>⭐️</button>
+    </div>
+
+
       {/* 2. INPUT BOX AND BUTTON */}
       <div className='popup'>
         <select ref={select} id='emoji' value={emoji} onChange={e => setEmoji(e.target.value)}>
           <option value="⭐️">⭐️ STAR</option>
           <option value="📌">📌 PIN</option>
           <option value="❤️">❤️ FAV</option>
-          <option value="📕">📕 STUDY</option>
+          {/* <option value="📕">📕 STUDY</option> */}
         </select>
         <input id='input' value={task} type="text" placeholder="Task Name" onChange={e => setTask(e.target.value)}  />
         <button id='btn' onClick={addTask}>ADD TASK</button>
