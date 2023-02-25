@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
@@ -7,20 +7,22 @@ import GoogleIcon from '../src/images/GOOGLE.webp'
 
 function Profile() {
 
+   const profileRef = useRef()
+
     // IF ELSE LOGIN CHECKING FUNCTION
     const [name, setName] = useState("");
     var nameDB = localStorage.getItem("nameDB");
     var profileDB = localStorage.getItem("pictureDB");
     var emailDB = localStorage.getItem("emailDB");
-    var profileImage = document.getElementById("profile");
+    // var profileImage = document.getElementById("profile");
     if (name === "") {
-        profileImage.src = GoogleIcon;
+        profileRef.current.src = GoogleIcon;
     }
     if (nameDB === "") {
-        profileImage.src.src = GoogleIcon;
+        profileRef.current.src = GoogleIcon;
     } else {
 
-        profileImage.src.src = GoogleIcon;
+        profileRef.current.src = GoogleIcon;
     }
     // GOOGLE SIGNIN 
 
@@ -57,7 +59,7 @@ function Profile() {
     return (
         <>
             <div onClick={handleShow} className='account'>
-                <img onClick={handleShow} id='profile' src={GoogleIcon} alt="" height="50px" width="50px" />
+                <img ref={profileRef} onClick={handleShow} id='profile' src={GoogleIcon} alt="" height="50px" width="50px" />
             </div>
 
             <Modal show={show} onHide={handleClose}>
