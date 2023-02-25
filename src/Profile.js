@@ -3,7 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
 import './App.css';
-import GoogleIcon from '../src/images/GOOGLE.webp'
+import GoogleIcon from '../src/images/GOOGLE.webp';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function Profile() {
 
@@ -47,6 +49,7 @@ function Profile() {
             localStorage.setItem("nameDB", JSON.stringify(response.name));
             localStorage.setItem("emailDB", JSON.stringify(response.email));
             localStorage.setItem("pictureDB", JSON.stringify(response.picture));
+            toast.success("Account Created Successfully");
         },
         googleAccountConfigs: {
             client_id: "938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com"
@@ -80,6 +83,7 @@ function Profile() {
                     <Button variant="primary" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
+            <Toaster/>
         </>
     );
 }

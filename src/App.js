@@ -15,7 +15,7 @@ function App() {
 
   const [oldArr , setOldarr] = useState([]);
 
-
+ 
   function addTask() {
     setOldarr(item)
     // EMPTY INPUT
@@ -80,11 +80,11 @@ function App() {
       <Profile/>
       <h1 className='header'> TODO LIST</h1>
       
-      <div>
-        <button onClick={allFun}>ALL</button>
-        <button onClick={loveFun}>❤️</button>
-        <button onClick={pinFun}>📌</button>
-        <button onClick={starFun}>⭐️</button>
+      <div className='filterbtns'>
+        <button id='filter-btn' onClick={allFun}>ALL</button>
+        <button id='filter-btn' onClick={loveFun}>❤️</button>
+        <button id='filter-btn' onClick={pinFun}>📌</button>
+        <button id='filter-btn' onClick={starFun}>⭐️</button>
     </div>
 
 
