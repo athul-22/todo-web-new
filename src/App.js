@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useRef} from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
@@ -11,7 +11,8 @@ function App() {
 
   const [emoji, setEmoji] = useState("");
 
-  
+  const select = useRef();
+
 
   function addTask() {
     // EMPTY INPUT
@@ -43,20 +44,23 @@ function App() {
   }
 
   return (
+    
     <div className="App">
-
       {/* 1. HEADER */}
       <Profile/>
       <h1 className='header'> TODO LIST</h1>
+      <div className='filter'>
+        
+      </div>
       {/* 2. INPUT BOX AND BUTTON */}
       <div className='popup'>
-        <select id='emoji' value={emoji} onChange={e => setEmoji(e.target.value)}>
+        <select ref={select} id='emoji' value={emoji} onChange={e => setEmoji(e.target.value)}>
           <option value="⭐️">⭐️ STAR</option>
           <option value="📌">📌 PIN</option>
           <option value="❤️">❤️ FAV</option>
           <option value="📕">📕 STUDY</option>
         </select>
-        <input id='input' value={task} type="text" placeholder="Task Name" onChange={e => setTask(e.target.value)} />
+        <input id='input' value={task} type="text" placeholder="Task Name" onChange={e => setTask(e.target.value)}  />
         <button id='btn' onClick={addTask}>ADD TASK</button>
       </div>
 
@@ -68,7 +72,7 @@ function App() {
           )
         })}
       </ul>
-      
+
       <Toaster />
     </div>
   );
