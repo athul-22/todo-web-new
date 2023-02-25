@@ -7,29 +7,32 @@ import GoogleIcon from '../src/images/GOOGLE.webp'
 
 function Profile() {
 
-   const profileRef = useRef()
-
-    // IF ELSE LOGIN CHECKING FUNCTION
+    //HOOKS
     const [name, setName] = useState("");
-    var nameDB = localStorage.getItem("nameDB");
-    var profileDB = localStorage.getItem("pictureDB");
-    var emailDB = localStorage.getItem("emailDB");
-    // var profileImage = document.getElementById("profile");
-    if (name === "") {
-        profileRef.current.src = GoogleIcon;
-    }
-    if (nameDB === "") {
-        profileRef.current.src = GoogleIcon;
-    } else {
-
-        profileRef.current.src = GoogleIcon;
-    }
-    // GOOGLE SIGNIN 
-
     const [email, setEmail] = useState("");
     const [profile, setProfile] = useState("");
 
+    const profileRef = useRef();
 
+    // IF ELSE LOGIN CHECKING FUNCTION
+    setProfile(GoogleIcon);
+    var nameDB = localStorage.getItem("nameDB");
+    // var profileDB = localStorage.getItem("pictureDB");
+    // var emailDB = localStorage.getItem("emailDB");
+    // var profileImage = document.getElementById("profile");
+    if (name === "") {
+       // profileRef.current.src = {GoogleIcon};
+       //setProfile(GoogleIcon);
+    }
+    if (nameDB === "") {
+       // profileRef.current.src = {GoogleIcon};
+       //setProfile(GoogleIcon);
+    } else {
+
+       // profileRef.current.src = {GoogleIcon};
+       
+    }
+   
     // GOOGLE ONE TAP POPUP
 
     useGoogleOneTapLogin({
@@ -52,14 +55,13 @@ function Profile() {
 
     const [show, setShow] = useState(false);
 
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
         <>
             <div onClick={handleShow} className='account'>
-                <img ref={profileRef} onClick={handleShow} id='profile' src={GoogleIcon} alt="" height="50px" width="50px" />
+                <img ref={profileRef} onClick={handleShow} id='profile' src={profile} alt="" height="50px" width="50px" />
             </div>
 
             <Modal show={show} onHide={handleClose}>
@@ -68,7 +70,7 @@ function Profile() {
                 </Modal.Header>
                 <Modal.Body>
                     <center>
-                        <img onClick={handleShow} id='profile' src={GoogleIcon} alt="" height="50px" width="50px" />
+                        <img onClick={handleShow} id='profile' src={profile} alt="" height="50px" width="50px" />
                         <p id='name'>{name}</p>
                         <p id='email'>{email}</p>
                     </center>
