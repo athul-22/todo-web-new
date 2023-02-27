@@ -2,8 +2,12 @@ import React, { useState , useRef} from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
+import ToggleDark from './ThemeToggle';
+import { ThemeContext,themes } from './Theme';
 
 function App() {
+
+  const [darkMode, setDarkMode] = React.useState(true);
 
   // STATE HOOK
   const [task, setTask] = useState("");
@@ -74,8 +78,17 @@ function App() {
   }
 
   return (
-    
     <div className="App">
+      <ThemeContext.Consumer>
+      {({changeTheme}) =>(
+        <ToggleDark
+        toggleDark={() => {
+          setDarkMode(!darkMode);
+          changeTheme(darkMode ? themes.light : themes.dark);
+          }}
+          />
+      )}
+    </ThemeContext.Consumer>
       {/* 1. HEADER */}
       <Profile/>
       <h1 className='header'> TODO LIST</h1>
