@@ -8,13 +8,13 @@ function App() {
   // STATE HOOK
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
-
   const [emoji, setEmoji] = useState("");
+  const [oldArr , setOldarr] = useState([]);
+  
 
   const select = useRef();
 
-  const [oldArr , setOldarr] = useState([]);
-
+  
  
   function addTask() {
     setOldarr(item)
@@ -27,15 +27,14 @@ function App() {
     else {
       toast.success("TASK ADDED SUCCESSFULLY");
       console.log(task);
-
       const items = {
         id: Math.floor(Math.random() * 1000),
         value: task,
         icon: emoji,
-        
       };
       setItem(oldList => [...oldList, items]);
       setTask("");
+      console.log(item.length);
     }
   }
 
@@ -74,6 +73,7 @@ function App() {
   }
 
   return (
+    
     <div className="App">
      
       {/* 1. HEADER */}

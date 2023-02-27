@@ -14,6 +14,8 @@ function Profile() {
     const [email, setEmail] = useState("");
     const [profile, setProfile] = useState(GoogleIcon);
 
+    const [lengthArr , setLengthArr ] = useState("0");
+
     const profileRef = useRef();
 
     // // IF ELSE LOGIN CHECKING FUNCTION
@@ -77,6 +79,7 @@ function Profile() {
                         <img onClick={handleShow} id='profile' src={profile} alt="" height="70px" width="70px" />
                         <p id='name'>{name}</p>
                         <p id='email'>{email}</p>
+                        <p id='email'>Total Tasks Created : {lengthArr}</p>
                     </center>
                 </Modal.Body>
                 <Modal.Footer>
