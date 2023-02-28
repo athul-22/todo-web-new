@@ -6,7 +6,6 @@ import './App.css';
 import GoogleIcon from '../src/images/GOOGLE.webp';
 import toast, { Toaster } from 'react-hot-toast';
 
-
 function Profile() {
 
     //HOOKS
@@ -74,6 +73,8 @@ function Profile() {
                 <Modal.Header closeButton>
                     <Modal.Title>My Account</Modal.Title>
                 </Modal.Header>
+
+
                 <Modal.Body>
                     <center>
                         <img onClick={handleShow} id='profile' src={profile} alt="" height="70px" width="70px" />
