@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef , Component} from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
@@ -9,18 +9,21 @@ function App() {
   // TASK SETTING
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
+  const [oldArr, setOldarr] = useState([]);
+  
   // EMOJI SETTING
   const [emoji, setEmoji] = useState("");
 
-  const [oldArr, setOldarr] = useState([]);
   //LOCAL STORAGE FOR ATTAY
   const [localArr , setLocalArr ] =  useState([]);
+
   // TASK NUMBER SETTING
   const [lengthArr, setLengthArr] = useState("");
 
   const select = useRef();
 
-  function addTask() {
+  // TASK ADDING FUNCTION
+  function addTask(id) {
     setOldarr(item)
     // EMPTY INPUT
     if (!task) {
@@ -31,17 +34,16 @@ function App() {
     else {
       toast.success("TASK ADDED SUCCESSFULLY");
       console.log(task);
+
       const items = {
         id: Math.floor(Math.random() * 1000),
         value: task,
         icon: emoji,
       };
+      setLocalArr(items);
       setItem(oldList => [...oldList, items]);
       setTask("");
-      console.log(item.length);
       setLengthArr(item.length);
-      console.log(lengthArr);
-
     }
   }
 
@@ -79,11 +81,14 @@ function App() {
     setItem(result);
   }
 
+  const itemz = useRef()
+
   function taskCompleted(id) {
-    let task = document.getElementById("task");
-    task.style.color = "red";
+    document.getElementById("task").style.textDecoration = 'line-through';
+    document.getElementById("task").style.color = 'grey';
   }
 
+ 
   return (
     <div className="App">
 
@@ -115,7 +120,7 @@ function App() {
       <ul style={{ textDecoration: 'lineThrough', }}>
         {item.map(items => {
           return (
-            <li onClick={taskCompleted} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
+            <li style={{}} onClick={taskCompleted} ref={itemz} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>✅ </button> </li>
           )
         })}
       </ul>
