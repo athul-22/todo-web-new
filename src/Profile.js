@@ -8,8 +8,6 @@ import toast, { Toaster } from 'react-hot-toast';
 
 function Profile({taskNo}) {
     
-
-    
     //HOOKS
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -17,6 +15,7 @@ function Profile({taskNo}) {
 
     const profileRef = useRef();
 
+    
     // // IF ELSE LOGIN CHECKING FUNCTION
    
     // var nameDB = localStorage.getItem("nameDB");

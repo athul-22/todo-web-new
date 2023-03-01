@@ -3,7 +3,6 @@ import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
 
-
 function App() {
   // STATE HOOK
   const [task, setTask] = useState("");
@@ -14,6 +13,15 @@ function App() {
   const [lengthArr , setLengthArr ] = useState("");
   
   const select = useRef();
+
+  //ACCOUT CHECKING
+
+  var nameDB = localStorage.getItem("nameDB");
+    if(nameDB === null){
+     
+    }else{
+      toast.info("err");
+    }
  
   function addTask() {
     setOldarr(item)
