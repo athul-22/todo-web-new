@@ -15,7 +15,6 @@ function Profile({taskNo}) {
 
     const profileRef = useRef();
 
-    
     // // IF ELSE LOGIN CHECKING FUNCTION
    
     // var nameDB = localStorage.getItem("nameDB");
