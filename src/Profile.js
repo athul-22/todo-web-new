@@ -15,28 +15,6 @@ function Profile({taskNo}) {
 
     const profileRef = useRef();
 
-    // // IF ELSE LOGIN CHECKING FUNCTION
-   
-    // var nameDB = localStorage.getItem("nameDB");
-    // // var profileDB = localStorage.getItem("pictureDB");
-    // // var emailDB = localStorage.getItem("emailDB");
-    // // var profileImage = document.getElementById("profile");
-    // if (name === "") {
-    //    // profileRef.current.src = {GoogleIcon};
-    //    //setProfile(GoogleIcon);
-       
-    // }
-    // if (nameDB === "") {
-    //    // profileRef.current.src = {GoogleIcon};
-    //    //setProfile(GoogleIcon);
-    // } else {
-
-    //    // profileRef.current.src = {GoogleIcon};
-       
-    // }
-   
-    // GOOGLE ONE TAP POPUP
-
     var nameDB = localStorage.getItem("nameDB");
     var profileDB = localStorage.getItem("pictureDB");
     var emailDB = localStorage.getItem("emailDB");
