@@ -62,6 +62,7 @@ body{
   outline: none;
 }
 
+
 #btn{
   font-weight: bold;
   font-size: 15px;
@@ -99,6 +100,11 @@ body{
   background-color: white;
   color: #6a9bd8;
 
+}
+
+ul:focus{
+  color: red;
+  text-decoration: line-through;
 }
 
 #task:hover{

@@ -80,7 +80,7 @@ function Profile({taskNo}) {
                         <img onClick={handleShow} id='profile' src={profile} alt="" height="70px" width="70px" />
                         <p id='name'>{name}</p>
                         <p id='email'>{email}</p>
-                        <p id='email'>Total Active : {taskNo}</p>
+                        <p id='email'>Total Active Tasks : {taskNo}</p>
                     </center>
                 </Modal.Body>
                 <Modal.Footer>

@@ -75,7 +75,6 @@ function App() {
 
   function taskCompleted(id){
     let task = document.getElementById("task");
-    
     task.style.color = "red";
   }
 
@@ -107,10 +106,10 @@ function App() {
       </div>
 
       {/* 3. ORDER LIST OF TASK */}
-      <ul>
+      <ul style={{textDecoration:'lineThrough',}}>
         {item.map(items => {
           return (
-            <li onClick={taskCompleted} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
+            <li onClick={taskCompleted}  id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
           )
         })}
       </ul>
