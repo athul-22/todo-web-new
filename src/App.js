@@ -1,4 +1,4 @@
-import React, { useState , useRef} from 'react';
+import React, { useState , useRef, useEffect} from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
@@ -73,11 +73,17 @@ function App() {
     setItem(result);
   }
 
+  function taskCompleted(id){
+    let task = document.getElementById("task");
+    
+    task.style.color = "red";
+  }
+
   return (
     <div className="App">
      
       {/* 1. HEADER */}
-      <Profile/>
+      <Profile taskNo={item.length} />
       <h1 className='header'> TODO LIST</h1>
       
       <div className='filterbtns'>
@@ -104,7 +110,7 @@ function App() {
       <ul>
         {item.map(items => {
           return (
-            <li id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
+            <li onClick={taskCompleted} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
           )
         })}
       </ul>

@@ -6,7 +6,7 @@ import './App.css';
 import GoogleIcon from '../src/images/GOOGLE.webp';
 import toast, { Toaster } from 'react-hot-toast';
 
-function Profile({lengthArr}) {
+function Profile({taskNo}) {
     
 
     
@@ -80,7 +80,7 @@ function Profile({lengthArr}) {
                         <img onClick={handleShow} id='profile' src={profile} alt="" height="70px" width="70px" />
                         <p id='name'>{name}</p>
                         <p id='email'>{email}</p>
-                        <p id='email'>Total Tasks Created : {lengthArr}</p>
+                        <p id='email'>Total Active : {taskNo}</p>
                     </center>
                 </Modal.Body>
                 <Modal.Footer>
