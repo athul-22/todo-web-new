@@ -6,14 +6,14 @@ import './App.css';
 import GoogleIcon from '../src/images/GOOGLE.webp';
 import toast, { Toaster } from 'react-hot-toast';
 
-function Profile() {
+function Profile({lengthArr}) {
+    
 
+    
     //HOOKS
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [profile, setProfile] = useState(GoogleIcon);
-
-    const [lengthArr , setLengthArr ] = useState("0");
 
     const profileRef = useRef();
 

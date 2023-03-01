@@ -10,11 +10,10 @@ function App() {
   const [item, setItem] = useState([]);
   const [emoji, setEmoji] = useState("");
   const [oldArr , setOldarr] = useState([]);
-  
 
+  const [lengthArr , setLengthArr ] = useState("0");
+  
   const select = useRef();
-
-  
  
   function addTask() {
     setOldarr(item)
@@ -35,6 +34,7 @@ function App() {
       setItem(oldList => [...oldList, items]);
       setTask("");
       console.log(item.length);
+      setLengthArr(item.length);
     }
   }
 
@@ -73,7 +73,6 @@ function App() {
   }
 
   return (
-    
     <div className="App">
      
       {/* 1. HEADER */}
