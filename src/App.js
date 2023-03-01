@@ -11,7 +11,7 @@ function App() {
   const [emoji, setEmoji] = useState("");
   const [oldArr , setOldarr] = useState([]);
 
-  const [lengthArr , setLengthArr ] = useState("0");
+  const [lengthArr , setLengthArr ] = useState("");
   
   const select = useRef();
  
@@ -35,6 +35,7 @@ function App() {
       setTask("");
       console.log(item.length);
       setLengthArr(item.length);
+      console.log(lengthArr);
     }
   }
 
