@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
@@ -38,27 +38,30 @@ function Profile({taskNo}) {
    
     // GOOGLE ONE TAP POPUP
 
+    var nameDB = localStorage.getItem("nameDB");
+    var profileDB = localStorage.getItem("pictureDB");
+    var emailDB = localStorage.getItem("emailDB");
+
+    useEffect(() => {
+
+        if (nameDB === null) {
+            toast('Create Account for better experience !', {
+              icon: '✳️',
+            });
+          } else {
+            // toast.error("Create Account for better experience")
+            toast('Welcome back !', {
+              icon: '🎉',
+            });
+            setName(nameDB);
+            setEmail(emailDB);
+            setProfile(profileDB);
+          }
+    }, [nameDB]);
 
     //ACCOUT CHECKING
-  var nameDB = localStorage.getItem("nameDB");
-  var profileDB = localStorage.getItem("pictureDB");
-  var emailDB = localStorage.getItem("emailDB");
-  var nameDB = localStorage.getItem("nameDB");
-
-  if (nameDB === null) {
-    toast('Create Account for better experience !', {
-      icon: '✳️',
-    });
-  } else {
-    setName(nameDB);
-    setEmail(emailDB);
-    setProfile(profileDB);
-    // toast.error("Create Account for better experience")
-    toast('Welcome back !', {
-      icon: '🎉',
-    });
-  }
-
+  
+  
     useGoogleOneTapLogin({
         onError: error => {
             console.log(error);
@@ -67,9 +70,9 @@ function Profile({taskNo}) {
             setName(response.name);
             setEmail(response.email);
             setProfile(response.picture);
-            localStorage.setItem("nameDB", JSON.stringify(response.name));
+            localStorage.setItem("nameDB", response.name);
             localStorage.setItem("emailDB", JSON.stringify(response.email));
-            localStorage.setItem("pictureDB", JSON.stringify(response.picture));
+            localStorage.setItem("pictureDB", response.picture);
             toast.success("Account Created Successfully");
         },
         googleAccountConfigs: {
