@@ -5,11 +5,17 @@ import Profile from './Profile';
 
 function App() {
   // STATE HOOK
+
+  // TASK SETTING
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
+  // EMOJI SETTING
   const [emoji, setEmoji] = useState("");
-  const [oldArr, setOldarr] = useState([]);
 
+  const [oldArr, setOldarr] = useState([]);
+  //LOCAL STORAGE FOR ATTAY
+  const [localArr , setLocalArr ] =  useState([]);
+  // TASK NUMBER SETTING
   const [lengthArr, setLengthArr] = useState("");
 
   const select = useRef();
@@ -35,6 +41,7 @@ function App() {
       console.log(item.length);
       setLengthArr(item.length);
       console.log(lengthArr);
+
     }
   }
 
