@@ -38,6 +38,27 @@ function Profile({taskNo}) {
    
     // GOOGLE ONE TAP POPUP
 
+
+    //ACCOUT CHECKING
+  var nameDB = localStorage.getItem("nameDB");
+  var profileDB = localStorage.getItem("pictureDB");
+  var emailDB = localStorage.getItem("emailDB");
+  var nameDB = localStorage.getItem("nameDB");
+
+  if (nameDB === null) {
+    toast('Create Account for better experience !', {
+      icon: '✳️',
+    });
+  } else {
+    setName(nameDB);
+    setEmail(emailDB);
+    setProfile(profileDB);
+    // toast.error("Create Account for better experience")
+    toast('Welcome back !', {
+      icon: '🎉',
+    });
+  }
+
     useGoogleOneTapLogin({
         onError: error => {
             console.log(error);

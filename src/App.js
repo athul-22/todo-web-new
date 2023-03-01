@@ -1,4 +1,4 @@
-import React, { useState , useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
@@ -8,21 +8,12 @@ function App() {
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
   const [emoji, setEmoji] = useState("");
-  const [oldArr , setOldarr] = useState([]);
+  const [oldArr, setOldarr] = useState([]);
 
-  const [lengthArr , setLengthArr ] = useState("");
-  
+  const [lengthArr, setLengthArr] = useState("");
+
   const select = useRef();
 
-  //ACCOUT CHECKING
-
-  var nameDB = localStorage.getItem("nameDB");
-    if(nameDB === null){
-     
-    }else{
-      toast.info("err");
-    }
- 
   function addTask() {
     setOldarr(item)
     // EMPTY INPUT
@@ -55,50 +46,50 @@ function App() {
     toast.success("Task Removed Successfully");
   }
 
-  function allFun(id){
+  function allFun(id) {
     console.log(oldArr)
     setItem(oldArr);
   }
 
-  function loveFun(id){
+  function loveFun(id) {
     setItem(oldArr);
     const result = item.filter(items => items.icon === "❤️");
     console.log(result);
     setItem(result);
   }
 
-  function starFun(id){
+  function starFun(id) {
     setItem(oldArr);
     const result = item.filter(items => items.icon === "⭐️");
     console.log(result);
     setItem(result);
   }
 
-  function pinFun(id){
+  function pinFun(id) {
     setItem(oldArr);
     const result = item.filter(items => items.icon === "📌");
     console.log(result);
     setItem(result);
   }
 
-  function taskCompleted(id){
+  function taskCompleted(id) {
     let task = document.getElementById("task");
     task.style.color = "red";
   }
 
   return (
     <div className="App">
-     
+
       {/* 1. HEADER */}
       <Profile taskNo={item.length} />
       <h1 className='header'> TODO LIST</h1>
-      
+
       <div className='filterbtns'>
         <button id='filter-btn' onClick={allFun}>ALL</button>
         <button id='filter-btn' onClick={loveFun}>❤️</button>
         <button id='filter-btn' onClick={pinFun}>📌</button>
         <button id='filter-btn' onClick={starFun}>⭐️</button>
-    </div>
+      </div>
 
 
       {/* 2. INPUT BOX AND BUTTON */}
@@ -109,15 +100,15 @@ function App() {
           <option value="❤️">❤️ FAV</option>
           {/* <option value="📕">📕 STUDY</option> */}
         </select>
-        <input id='input' value={task} type="text" placeholder="Task Name" onChange={e => setTask(e.target.value)}  />
+        <input id='input' value={task} type="text" placeholder="Task Name" onChange={e => setTask(e.target.value)} />
         <button id='btn' onClick={addTask}>ADD TASK</button>
       </div>
 
       {/* 3. ORDER LIST OF TASK */}
-      <ul style={{textDecoration:'lineThrough',}}>
+      <ul style={{ textDecoration: 'lineThrough', }}>
         {item.map(items => {
           return (
-            <li onClick={taskCompleted}  id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
+            <li onClick={taskCompleted} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>❌</button> </li>
           )
         })}
       </ul>
