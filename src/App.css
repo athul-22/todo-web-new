@@ -234,3 +234,7 @@ input[type="checkbox"]:checked {
   margin-bottom: 20px;
 }
 
+.taskclass{
+  text-decoration: line-through;
+}
+

@@ -84,10 +84,15 @@ function App() {
 
   const itemz = useRef()
 
-  function taskCompleted(id) {
-    document.getElementById("task").style.textDecoration = 'line-through';
-    document.getElementById("task").style.color = 'grey';
-    $("#tasl")[id].css = ( 'colo':'red');
+  function taskCompleted(item) {
+
+    console.log(item)
+
+    
+    
+    // document.getElementById("task").style.textDecoration = 'line-through';
+    // document.getElementById("task").style.color = 'grey';
+    // $("#task").css = ( "color","red");
   }
 
  
@@ -122,7 +127,9 @@ function App() {
       <ul style={{ textDecoration: 'lineThrough', }}>
         {item.map(items => {
           return (
-            <li style={{}} onClick={taskCompleted} ref={itemz} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>✅ </button> </li>
+            <div  onClick={taskCompleted}>
+              <li style={{}} onClick={taskCompleted} ref={itemz} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>✅ </button> </li>
+            </div>
           )
         })}
       </ul>
