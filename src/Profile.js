@@ -47,9 +47,9 @@ function Profile({taskNo}) {
             setName(response.name);
             setEmail(response.email);
             setProfile(response.picture);
-            localStorage.setItem("nameDB", response.name());
-            localStorage.setItem("emailDB", response.email());
-            localStorage.setItem("pictureDB", response.picture());
+            localStorage.setItem("nameDB", response.name);
+            localStorage.setItem("emailDB", response.email);
+            localStorage.setItem("pictureDB", response.picture);
             toast.success("Account Created Successfully");
         },
         googleAccountConfigs: {
