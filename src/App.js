@@ -2,6 +2,7 @@ import React, { useState, useRef , Component} from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
+import $ from 'jquery';
 
 function App() {
   // STATE HOOK
@@ -86,6 +87,7 @@ function App() {
   function taskCompleted(id) {
     document.getElementById("task").style.textDecoration = 'line-through';
     document.getElementById("task").style.color = 'grey';
+    $("#tasl")[id].css = ( 'colo':'red');
   }
 
  
