@@ -84,10 +84,16 @@ function App() {
 
   const itemz = useRef(0)
 
-  function taskCompleted(id) {
-    console.log(id);
+  function taskCompleted(items) {
+    console.log(items);
+    var lItems = document.getElementsByTagName("ul").getElementsByTagName("li");
+    var tsst = lItems[items.id].innerHTML;
+    console.log(tsst)
+    // ⭐️ WORKING KEYWORD
     itemz.current.style.color = "grey";
     itemz.current.style.textDecoration = "line-through";
+
+
     // document.getElementsByClassName("divclass").style.textDecoration = 'line-through';
     // document.getElementById("task").style.textDecoration = 'line-through';
     // document.getElementById("task").style.color = 'grey';
@@ -125,16 +131,13 @@ function App() {
       </div>
 
       {/* 3. ORDER LIST OF TASK */}
-      <ul style={{ textDecoration: 'lineThrough', }}>
-        {item.map(items => {
+         {item.map(items => {
           return (
-            <div  onClick={taskCompleted}  className='divclass'>
-              
-              <li ref={itemz} id='task' key={items.id}>{items.icon} {items.value} <button id='close' onClick={() => removeTask(items.id)}>✅ </button> </li>
+            <div className='divclass' >
+              <li onClick={taskCompleted} altkey={items.id} ref={itemz} id='task' key={items.id}>{items.icon}  {items.value}  <button id='close' onClick={() => removeTask(items.id)}> ❌ </button> </li>
             </div>
           )
         })}
-      </ul>
 
       <Toaster />
     </div>
