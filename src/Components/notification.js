@@ -1,12 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import db from './firebase';
+import db from './Firebase';
 import notificationIcon from '../images/notifcationicon.png';
 import notifMain from '../images/notifmain.png';
 import notifinsideImg from '../images/EmptyInbox.png';
-
 
 function Notification(){
     const [show, setShow] = useState(false);
