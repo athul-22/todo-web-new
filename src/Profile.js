@@ -20,25 +20,22 @@ function Profile({taskNo}) {
     var emailDB = localStorage.getItem("emailDB");
 
     useEffect(() => {
-
         if (nameDB === null) {
             toast('Create Account for better experience !', {
-              icon: '✳️',
+              icon: '📢',
             });
           } else {
             // toast.error("Create Account for better experience")
-            toast('Welcome back !', {
+            toast(<b>Welcome to todo list</b>, {
               icon: '🎉',
             });
             setName(nameDB);
             setEmail(emailDB);
             setProfile(profileDB);
           }
-    }, [nameDB]);
+    },[]);
 
-    //ACCOUT CHECKING
-  
-  
+    //GOOGLE ONE TAP LOGIN
     useGoogleOneTapLogin({
         onError: error => {
             console.log(error);
@@ -58,6 +55,7 @@ function Profile({taskNo}) {
     });
 
 
+   
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
