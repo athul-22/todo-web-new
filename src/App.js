@@ -1,8 +1,9 @@
-import React, { useState, useRef , Component} from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
-import $ from 'jquery';
+// import $ from 'jquery';
+import Notification from './Components/notification';
 
 function App() {
   // STATE HOOK
@@ -99,15 +100,14 @@ function App() {
     // document.getElementById("task").style.color = 'grey';
     // $("#task").css = ( "color","red");
   }
-
-
-
  
   return (
     <div className="App">
 
       {/* 1. HEADER */}
       <Profile taskNo={item.length} />
+      <Notification />
+
       <h1 className='header'> TODO LIST</h1>
 
       <div className='filterbtns'>
