@@ -3,7 +3,7 @@ import './App.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Profile';
 // import $ from 'jquery';
-import Notification from './Components/notification';
+import Notification from './notification';
 
 function App() {
   // STATE HOOK
