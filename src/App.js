@@ -106,6 +106,7 @@ function App() {
 
       {/* 1. HEADER */}
       <Profile taskNo={item.length} />
+     
       <Notification />
 
       <h1 className='header'> TODO LIST</h1>

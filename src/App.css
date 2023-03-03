@@ -172,7 +172,6 @@ input[type="checkbox"]:checked {
   background-color: white;
   justify-content: center;
   display: inline-flex;
-
   align-items: center;
 }
 
@@ -235,3 +234,19 @@ input[type="checkbox"]:checked {
   text-decoration: line-through;
 }
 
+.notification-btn{
+  height: 70px;
+  width: 70px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  margin-top:-70px;
+  margin-left: 150px;
+}
+
+.notification-btn:hover{
+  opacity: .5;
+}
