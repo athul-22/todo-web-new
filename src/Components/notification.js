@@ -14,8 +14,12 @@ function Notification(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [todos, setTodos] = useState([]);
+
     useEffect(()=>{
-        db.collection
+        db.collection('todos').onSnapshot(snapshot =>{
+            setTodos(snapshot.docs.map(doc => ({id:doc.id, todo:doc.data().todo})))
+        })
     },[]);
 
   return (
