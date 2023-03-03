@@ -2,8 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../App.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import db from './firebase'
-// IMAGES
+import db from './firebase';
 import notificationIcon from '../images/notifcationicon.png';
 import notifMain from '../images/notifmain.png';
 import notifinsideImg from '../images/EmptyInbox.png';
