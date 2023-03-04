@@ -5,6 +5,7 @@ import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
 import './App.css';
 import GoogleIcon from '../src/images/GOOGLE.webp';
 import toast, { Toaster } from 'react-hot-toast';
+import PureModels from './PureModel';
 
 function Profile({taskNo}) {
     
@@ -24,6 +25,7 @@ function Profile({taskNo}) {
             toast('Create Account for better experience !', {
               icon: '📢',
             });
+            <PureModels/>
           } else {
             // toast.error("Create Account for better experience")
             toast(<b>Welcome to todo list</b>, {
@@ -54,8 +56,6 @@ function Profile({taskNo}) {
         },
     });
 
-
-   
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -85,6 +85,7 @@ function Profile({taskNo}) {
                     <Button variant="primary" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
+
             <Toaster/>
         </>
     );

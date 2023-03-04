@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import notificationIcon from './images/notifcationicon.png';
 import notifMain from './images/notifmain.png';
 import notifinsideImg from './images/EmptyInbox.png';
-import db from './firebase'
+import firebase from './firebase'
 
 
 function Notification() {
@@ -15,17 +15,22 @@ function Notification() {
     const handleShow = () => setShow(true);
     
     function fetchAll(){
-        db.collection("users").add({
-            first: "Ada",
-            last: "Lovelace",
-            born: 1815
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
+
+        const ref = firebase.firestore().collection("todos");
+        console.log(ref);
+
+
+        // db.collection("todos").add({
+        //     first: "Ada",
+        //     last: "Lovelace",
+        //     born: 1815
+        // })
+        // .then((docRef) => {
+        //     console.log("Document written with ID: ", docRef.id);
+        // })
+        // .catch((error) => {
+        //     console.error("Error adding document: ", error);
+        // });
     }
     
 
