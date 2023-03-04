@@ -27,6 +27,7 @@ function App() {
 
   // TASK ADDING FUNCTION
   function addTask(id) {
+    //SETTING OLD ITEM
     setOldarr(item)
     // EMPTY INPUT
     if (!task) {
@@ -43,10 +44,35 @@ function App() {
         value: task,
         icon: emoji,
       };
-      setLocalArr(items);
       setItem(oldList => [...oldList, items]);
+      setLocalArr(items);
+       //SETTING OLD ITEM
+    setOldarr(item)
       setTask("");
       setLengthArr(item.length);
+
+      //🟡 FIREBASE REALTIME DATABASE
+      // var nameDB = localStorage.getItem("nameDB");
+      // var profileDB = localStorage.getItem("pictureDB");
+      var emailDB = localStorage.getItem("emailDB");
+
+      const newEmail = emailDB.replace(/[&\/\\#,+()$~%.'":*?<>{}@.]/g, '');
+      const newEmail1 = newEmail.split('.').join("");
+      console.log(newEmail1);
+
+      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/'+newEmail+'.json'
+        fetch(fbUrl,
+        {
+            method: "POST",
+            headers: {
+                emailDB,
+            },
+            body: JSON.stringify({
+                item
+            })
+        }
+    )
+
     }
   }
 
@@ -94,8 +120,6 @@ function App() {
     // ⭐️ WORKING KEYWORD
     itemz.current.style.color = "grey";
     itemz.current.style.textDecoration = "line-through";
-
-
     // document.getElementsByClassName("divclass").style.textDecoration = 'line-through';
     // document.getElementById("task").style.textDecoration = 'line-through';
     // document.getElementById("task").style.color = 'grey';

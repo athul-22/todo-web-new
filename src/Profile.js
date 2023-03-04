@@ -60,9 +60,14 @@ function Profile({ taskNo }) {
     function fbFun(response) {
         const name = response.name;
         const email = response.email;
-        const profile = response.profile;
-      
-        const fbData = fetch('https://todoapp-fb470-default-rtdb.firebaseio.com/todos.json',
+        const profile = response.picture;
+
+        const newEmail = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@.]/g, '');
+        const newEmail1 = newEmail.split('.').join("");
+        console.log(newEmail1);
+        
+        const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/'+newEmail+'.json'
+        fetch(fbUrl,
         {
             method: "POST",
             headers: {
@@ -76,6 +81,7 @@ function Profile({ taskNo }) {
             })
         }
     )
+    
     }
 
     const [show, setShow] = useState(false);
