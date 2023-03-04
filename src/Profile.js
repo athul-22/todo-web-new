@@ -37,6 +37,16 @@ function Profile({taskNo}) {
           }
     },[]);
 
+    function fbFun(){
+        const fbData  =fetch('https://todoapp-fb470-default-rtdb.firebaseio.com/todos.json',
+       { method: "POST"
+         headers:{
+            
+         }
+        }
+        )
+    }
+
     //GOOGLE ONE TAP LOGIN
     useGoogleOneTapLogin({
         onError: error => {
@@ -50,6 +60,7 @@ function Profile({taskNo}) {
             localStorage.setItem("emailDB", response.email);
             localStorage.setItem("pictureDB", response.picture);
             toast.success("Account Created Successfully");
+            fbFun();
         },
         googleAccountConfigs: {
             client_id: "938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com"

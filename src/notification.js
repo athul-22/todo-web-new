@@ -7,9 +7,7 @@ import notifMain from './images/notifmain.png';
 import notifinsideImg from './images/EmptyInbox.png';
 import firebase from './firebase'
 
-
 function Notification() {
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
