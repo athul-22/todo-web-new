@@ -12,12 +12,12 @@ function App() {
   const [task, setTask] = useState("");
   const [item, setItem] = useState([]);
   const [oldArr, setOldarr] = useState([]);
-  
+
   // EMOJI SETTING
   const [emoji, setEmoji] = useState("");
 
   //LOCAL STORAGE FOR ATTAY
-  const [localArr , setLocalArr ] =  useState([]);
+  const [localArr, setLocalArr] = useState([]);
 
   // TASK NUMBER SETTING
   const [lengthArr, setLengthArr] = useState("");
@@ -28,7 +28,7 @@ function App() {
   // TASK ADDING FUNCTION
   function addTask(id) {
     //SETTING OLD ITEM
-    setOldarr(item)
+    // setOldarr(item)
     // EMPTY INPUT
     if (!task) {
       // alert("ENTER AN ITEM");
@@ -36,21 +36,21 @@ function App() {
     }
     // TASK ADDING 
     else {
-      toast.success("TASK ADDED SUCCESSFULLY");
-      console.log(task);
-
       const items = {
         id: Math.floor(Math.random() * 1000),
         value: task,
         icon: emoji,
       };
-      setItem(oldList => [...oldList, items]);
+      toast.success("TASK ADDED SUCCESSFULLY");
+      console.log(task);
+      setItem([items,...item])
+      // setItem(oldList => [...oldList, items]);
       setLocalArr(items);
-       //SETTING OLD ITEM
-    setOldarr(item)
+      setOldarr(item)
       setTask("");
       setLengthArr(item.length);
-
+      //SETTING OLD ITEM
+      setOldarr(item )
       //🟡 FIREBASE REALTIME DATABASE
       // var nameDB = localStorage.getItem("nameDB");
       // var profileDB = localStorage.getItem("pictureDB");
@@ -60,19 +60,18 @@ function App() {
       const newEmail1 = newEmail.split('.').join("");
       console.log(newEmail1);
 
-      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/'+newEmail+'.json'
-        fetch(fbUrl,
+      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + newEmail + '.json'
+      fetch(fbUrl,
         {
-            method: "POST",
-            headers: {
-                emailDB,
-            },
-            body: JSON.stringify({
-                item
-            })
+          method: "POST",
+          headers: {
+            emailDB,
+          },
+          body: JSON.stringify({
+            item
+          })
         }
-    )
-
+      )
     }
   }
 
@@ -85,7 +84,7 @@ function App() {
   }
 
   function allFun(id) {
-    console.log(oldArr)
+    console.log(oldArr);
     setItem(oldArr);
   }
 
@@ -125,13 +124,12 @@ function App() {
     // document.getElementById("task").style.color = 'grey';
     // $("#task").css = ( "color","red");
   }
- 
   return (
     <div className="App">
 
       {/* 1. HEADER */}
       <Profile taskNo={item.length} />
-     
+
       <Notification />
 
       <h1 className='header'> TODO LIST</h1>
@@ -142,6 +140,7 @@ function App() {
         <button id='filter-btn' onClick={pinFun}>📌</button>
         <button id='filter-btn' onClick={starFun}>⭐️</button>
       </div>
+
 
 
       {/* 2. INPUT BOX AND BUTTON */}
@@ -157,13 +156,13 @@ function App() {
       </div>
 
       {/* 3. ORDER LIST OF TASK */}
-         {item.map(items => {
-          return (
-            <div className='divclass' >
-              <li onClick={taskCompleted} altkey={items.id} ref={itemz} id='task' key={items.id}>{items.icon}  {items.value}  <button id='close' onClick={() => removeTask(items.id)}> ❌ </button> </li>
-            </div>
-          )
-        })}
+      {item.map(items => {
+        return (
+          <div className='divclass' >
+            <li onClick={taskCompleted} altkey={items.id} ref={itemz} id='task' key={items.id}>{items.icon}  {items.value}  <button id='close' onClick={() => removeTask(items.id)}> ❌ </button> </li>
+          </div>
+        )
+      })}
 
       <Toaster />
     </div>
