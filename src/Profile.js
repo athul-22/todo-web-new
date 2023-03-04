@@ -7,8 +7,8 @@ import GoogleIcon from '../src/images/GOOGLE.webp';
 import toast, { Toaster } from 'react-hot-toast';
 import PureModels from './PureModel';
 
-function Profile({taskNo}) {
-    
+function Profile({ taskNo }) {
+
     //HOOKS
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -23,29 +23,19 @@ function Profile({taskNo}) {
     useEffect(() => {
         if (nameDB === null) {
             toast('Create Account for better experience !', {
-              icon: '📢',
+                icon: '📢',
             });
-            <PureModels/>
-          } else {
+            <PureModels />
+        } else {
             // toast.error("Create Account for better experience")
             toast(<b>Welcome to todo list</b>, {
-              icon: '🎉',
+                icon: '🎉',
             });
             setName(nameDB);
             setEmail(emailDB);
             setProfile(profileDB);
-          }
-    },[]);
-
-    function fbFun(){
-        const fbData  =fetch('https://todoapp-fb470-default-rtdb.firebaseio.com/todos.json',
-       { method: "POST"
-         headers:{
-            
-         }
         }
-        )
-    }
+    }, []);
 
     //GOOGLE ONE TAP LOGIN
     useGoogleOneTapLogin({
@@ -60,12 +50,33 @@ function Profile({taskNo}) {
             localStorage.setItem("emailDB", response.email);
             localStorage.setItem("pictureDB", response.picture);
             toast.success("Account Created Successfully");
-            fbFun();
+            fbFun(response);
         },
         googleAccountConfigs: {
             client_id: "938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com"
         },
     });
+
+    function fbFun(response) {
+        const name = response.name;
+        const email = response.email;
+        const profile = response.profile;
+      
+        const fbData = fetch('https://todoapp-fb470-default-rtdb.firebaseio.com/todos.json',
+        {
+            method: "POST",
+            headers: {
+                email,
+            },
+            body: JSON.stringify({
+                name,
+                profile,
+                email,
+                
+            })
+        }
+    )
+    }
 
     const [show, setShow] = useState(false);
 
@@ -97,7 +108,7 @@ function Profile({taskNo}) {
                 </Modal.Footer>
             </Modal>
 
-            <Toaster/>
+            <Toaster />
         </>
     );
 }
