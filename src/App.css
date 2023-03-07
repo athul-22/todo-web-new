@@ -4,8 +4,7 @@
   display: grid;
   justify-content: center;
   place-items: center;
-  background-color: #ebf5fc;
-  
+  background-color: #ebf5fc; 
 }
 
 body{
