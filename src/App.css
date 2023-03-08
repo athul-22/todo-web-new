@@ -121,9 +121,9 @@ ul:focus{
   cursor: pointer;
 }
 
+
 #close:hover{
   background-color:#eee;
-
 }
 
 input[type=checkbox] {
