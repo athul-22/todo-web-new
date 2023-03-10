@@ -15,6 +15,7 @@ function PureModels() {
                         <button>Save</button>
                     </div>
                 }
+
                 isOpen={modal}
                 closeButton="close"
                 closeButtonPosition="bottom"
