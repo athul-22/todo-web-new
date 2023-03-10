@@ -15,7 +15,6 @@ function App() {
 
   // EMOJI SETTING
   const [emoji, setEmoji] = useState("");
-
   //LOCAL STORAGE FOR ATTAY
   const [localArr, setLocalArr] = useState([]);
 
